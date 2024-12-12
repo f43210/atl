@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.example.battery.model.UserInfoModel" />
+        <variable
+            name="userExt"
+            type="com.example.battery.model.UserInfoBindExtModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/user_info_shape_gradient"
+        android:clipToPadding="true"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="20dp"
+                android:text="@string/UserInfo_welcome"
+                android:textAlignment="center"
+                android:textColor="@color/user_info_txt_color"
+                android:textSize="39sp"
+                android:textStyle="bold" />
+
+        </FrameLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.5"
+                        android:gravity="top"
+                        android:orientation="vertical"
+                        android:paddingLeft="24dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/UserInfo_start_time"
+                            android:textColor="@color/user_info_txt_color"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:paddingLeft="30dp"
+                        android:paddingBottom="24dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <Spinner
+                                android:id="@+id/spinner_year"
+                                android:layout_width="120dp"
+                                android:layout_height="30dp"
+                                android:layout_marginLeft="10dp"
+                                android:background="#E5E5E5"
+                                android:entries="@{userExt.yearList}"
+                                android:selectedItemPosition="@={userExt.yearItemPosition}"
+                                android:dropDownVerticalOffset="45dp"
+                                android:spinnerMode="dropdown" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:text="@string/UserInfo_year"
+                                android:textColor="@color/user_info_txt_color"
+                                android:textSize="24sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <Spinner
+                                android:id="@+id/spinner_month"
+                                android:layout_width="120dp"
+                                android:layout_height="30dp"
+                                android:layout_marginLeft="10dp"
+                                android:background="#E5E5E5"
+                                android:dropDownVerticalOffset="45dp"
+                                android:entries="@{userExt.monthList}"
+                                android:selectedItemPosition="@={userExt.monthItemPosition}"
+                                android:spinnerMode="dropdown" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:text="@string/UserInfo_month"
+                                android:textColor="@color/user_info_txt_color"
+                                android:textSize="24sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+                <!--职业-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipChildren="false"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.5"
+                        android:gravity="top"
+                        android:orientation="vertical"
+                        android:paddingLeft="24dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/UserInfo_professional"
+                            android:textColor="@color/user_info_txt_color"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:paddingLeft="-10dp"
+                        android:paddingBottom="24dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="40dp">
+
+                            <Spinner
+                                android:id="@+id/spinner_professional"
+                                android:layout_width="120dp"
+                                android:layout_height="30dp"
+                                android:layout_marginLeft="10dp"
+                                android:background="#E5E5E5"
+                                android:dropDownVerticalOffset="45dp"
+                                android:entries="@{userExt.userProfessionalList}"
+                                android:selectedItemPosition="@={userExt.userProfessionalItemPosition}"
+                                android:spinnerMode="dropdown" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/UserInfo_other"
+                                android:textColor="@color/user_info_txt_color"
+                                android:textSize="20sp" />
+
+                            <ScrollView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <EditText
+                                    android:id="@+id/input_other_professional"
+                                    android:layout_width="120dp"
+                                    android:layout_height="30dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:background="#E5E5E5"
+                                    android:gravity="left"
+                                    android:text="@={user.professionalValue}"
+                                    android:hint="可填写"
+                                    android:inputType="text" />
+
+                            </ScrollView>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+                <!--手机用途 开始-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipChildren="false"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.5"
+                        android:gravity="top"
+                        android:orientation="vertical"
+                        android:paddingLeft="24dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/UserInfo_usage"
+                            android:textColor="@color/user_info_txt_color"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:paddingLeft="-10dp"
+                        android:paddingBottom="24dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="40dp">
+
+                            <Spinner
+                                android:id="@+id/spinner_usage"
+                                android:layout_width="120dp"
+                                android:layout_height="30dp"
+                                android:layout_marginLeft="10dp"
+                                android:background="#E5E5E5"
+                                android:dropDownVerticalOffset="45dp"
+                                android:entries="@{userExt.phoneUsageList}"
+                                android:selectedItemPosition="@={userExt.phoneUsageItemPosition}"
+                                android:spinnerMode="dropdown" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/UserInfo_other"
+                                android:textColor="@color/user_info_txt_color"
+                                android:textSize="20sp" />
+
+                            <ScrollView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <EditText
+                                    android:id="@+id/input_other_usage"
+                                    android:layout_width="120dp"
+                                    android:layout_height="30dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:background="#E5E5E5"
+                                    android:gravity="left"
+                                    android:text="@={user.usageValue}"
+                                    android:hint="可填写"
+                                    android:inputType="text" />
+
+                            </ScrollView>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+                <!--手机用途 结束-->
+
+                <!--手机品牌 开始-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipChildren="false"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.5"
+                        android:gravity="top"
+                        android:orientation="vertical"
+                        android:paddingLeft="24dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/UserInfo_brand"
+                            android:textColor="@color/user_info_txt_color"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:paddingLeft="-10dp"
+                        android:paddingBottom="24dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="40dp">
+
+                            <Spinner
+                                android:id="@+id/spinner_brand"
+                                android:layout_width="120dp"
+                                android:layout_height="30dp"
+                                android:layout_marginLeft="10dp"
+                                android:background="#E5E5E5"
+                                android:dropDownVerticalOffset="45dp"
+                                android:entries="@{userExt.phoneBrandList}"
+                                android:selectedItemPosition="@={userExt.phoneBrandItemPosition}"
+                                android:spinnerMode="dropdown" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/UserInfo_other"
+                                android:textColor="@color/user_info_txt_color"
+                                android:textSize="20sp" />
+
+                            <ScrollView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <EditText
+                                    android:id="@+id/input_other_brand"
+                                    android:layout_width="120dp"
+                                    android:layout_height="30dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:background="#E5E5E5"
+                                    android:gravity="left"
+                                    android:text="@={user.brandValue}"
+                                    android:hint="可填写"
+                                    android:inputType="text" />
+
+                            </ScrollView>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+                <!--手机品牌 结束-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:text="@string/UserInfo_is_change_battery"
+                        android:textColor="@color/user_info_txt_color"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <RadioGroup
+                        android:id="@+id/rgChangeBattery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/btnYes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/UserInfo_is_change_battery_yes" />
+
+                        <RadioButton
+                            android:id="@+id/btnNo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:text="@string/UserInfo_is_change_battery_no" />
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="30dp"
+                    android:background="@color/user_info_submit_btn_txt_color"
+                    android:text="@string/UserInfo_submit"
+                    android:textAllCaps="false"
+                    android:textSize="24dp"
+                    android:onClick="submitUserInfo"
+                    android:textStyle="bold" />
+                <Button
+                    android:id="@+id/button_cancel"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="30dp"
+                    android:background="@color/main_view_color"
+                    android:text="@string/UserInfo_cancel"
+                    android:textAllCaps="false"
+                    android:textSize="24dp"
+                    android:onClick="onClickCancel"
+                    android:textStyle="bold"
+                    android:visibility="@{userExt.cancelBtnVisible}"/>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="phone_usage">
+        <item>其他</item>
+    </string-array>
+    <string-array name="phone_professional">
+        <item>其他</item>
+    </string-array>
+    <string-array name="phone_brand">
+        <item>其他</item>
+    </string-array>
+</resources>
